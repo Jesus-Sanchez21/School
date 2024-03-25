@@ -24,14 +24,15 @@
                             <a class="nav-link text-light" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         <li class="nav-item dropdown text-light">
-                            <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                            <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Manipulate Data</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item text-light" asp-controller="Aluno" asp-action="Index">Alunos</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item text-light" href="#">Professores</a>
+                                <a class="dropdown-item text-light" asp-controller="Professor" asp-action="Index">Professores</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item text-light" href="#">Turmas</a>
+                                <a class="dropdown-item text-light" asp-controller="Turma" asp-action="Index">Turmas</a>
                                 <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-light" asp-controller="Disciplina" asp-action="Index">Disciplinas</a>
                             </div>
                         </li>
                     </ul>

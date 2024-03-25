@@ -1,0 +1,27 @@
+﻿@model Turma
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-dark">Deleção de Turma</h2>
+            <hr />
+        </div>
+
+        <div class="form-floating mb-3 row">
+            <label asp-for="Nome" disabled class="p-0"></label>
+            <input asp-for="Nome" disabled class="form-control" />
+        </div>
+        <div class="form-floating mb-3 row">
+            <label asp-for="Ano" disabled class="p-0"></label>
+            <input asp-for="Ano" disabled class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px"><i class="bi bi-upload"></i></button>
+        <a asp-controller="Turma" asp-action="Index" class="btn btn-secondary" style="width:150px"><i class="bi bi-trash-fill"></i></a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

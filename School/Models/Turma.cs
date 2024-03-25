@@ -17,9 +17,5 @@ namespace School.Models
         [Required]
         [Range(1, 12, ErrorMessage = "O ano deve estar entre 1 e 12")]
         public int Ano { get; set; }
-
-        public int AlunoId { get; set; }
-        [ForeignKey("AlunoId")]
-        public Aluno Aluno { get; set; }
     }
 }

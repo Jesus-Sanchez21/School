@@ -22,5 +22,10 @@ namespace School.Models
         [Display(Name = "Número de aluno")]
 
         public int Numero { get; set; }
+
+        public int TurmaId { get; set; }
+        [ForeignKey("TurmaId")]
+        public Turma? Turma { get; set; }
+
     }
 }

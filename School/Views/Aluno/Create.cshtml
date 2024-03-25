@@ -1,4 +1,4 @@
-﻿@model Aluno
+﻿@model School.Models.ViewModels.AlunoCreateVM
 
 <form method="post">
     <div class="border p-3 mt-4">
@@ -19,7 +19,18 @@
             <label asp-for="Numero" class="p-0"></label>
             <input asp-for="Numero" class="form-control" />
         </div>
+        <div class="form-floating mb-3 row">
+            <label asp-for="TurmaId" class="p-0"></label>
+            <select asp-for="TurmaId" asp-items="@Model.TurmaList" class="form-select"></select>
+        </div>
 
-        <button type="submit" class="btn btn-primary" style="width:150xp"><i class="bi bi-upload"></i></button>
+        <button type="submit" class="btn btn-primary" style="width:150px"><i class="bi bi-upload"></i></button>
+        <a asp-controller="Aluno" asp-action="Index" class="btn btn-secondary" style="width:150px"><i class="bi bi-arrow-return-left"></i></a>
     </div>
 </form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

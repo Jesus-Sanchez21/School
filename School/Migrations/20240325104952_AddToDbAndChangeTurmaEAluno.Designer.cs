@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using School.Data;
 
@@ -10,9 +11,11 @@ using School.Data;
 namespace School.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240325104952_AddToDbAndChangeTurmaEAluno")]
+    partial class AddToDbAndChangeTurmaEAluno
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,47 +76,6 @@ namespace School.Migrations
                             Nome = "André Santos Sousa",
                             Numero = 3,
                             TurmaId = 2
-                        });
-                });
-
-            modelBuilder.Entity("School.Models.Disciplina", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("Ano")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ProfessorId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProfessorId");
-
-                    b.ToTable("Disciplinas");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Ano = 12,
-                            Nome = "Ciencias",
-                            ProfessorId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Ano = 10,
-                            Nome = "História",
-                            ProfessorId = 2
                         });
                 });
 
@@ -191,17 +153,6 @@ namespace School.Migrations
                         .IsRequired();
 
                     b.Navigation("Turma");
-                });
-
-            modelBuilder.Entity("School.Models.Disciplina", b =>
-                {
-                    b.HasOne("School.Models.Professor", "Professor")
-                        .WithMany()
-                        .HasForeignKey("ProfessorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Professor");
                 });
 #pragma warning restore 612, 618
         }
