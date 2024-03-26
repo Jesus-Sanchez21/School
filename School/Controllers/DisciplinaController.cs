@@ -35,6 +35,23 @@ namespace School.Controllers
         [HttpPost]
         public IActionResult Create(Disciplina viewModel)
         {
+            Professor? professor = _db.Professores.Find(viewModel.ProfessorId);
+            if (professor == null)
+            {
+                return RedirectToAction("Create");
+            }
+
+            if (
+                String.IsNullOrWhiteSpace(viewModel.Nome) ||
+                (viewModel.Ano < 1 || viewModel.Ano > 12) ||
+                (viewModel.ProfessorId < 1)
+               )
+            {
+
+                return RedirectToAction("Create");
+            }
+
+
             Disciplina model = new Disciplina()
             {
                 Nome = viewModel.Nome,

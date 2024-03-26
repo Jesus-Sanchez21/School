@@ -31,6 +31,16 @@ namespace School.Controllers
         [HttpPost]
         public IActionResult Create(Professor obj)
         {
+            //Valida se está nulo ou se tem numeros
+            bool containsNumber = obj.Nome.Any(char.IsDigit);
+            if (
+                containsNumber ||
+                String.IsNullOrWhiteSpace(obj.Nome)
+               )
+            {
+
+                return RedirectToAction("Create");
+            }
             if (ModelState.IsValid)
             {
                 _db.Professores.Add(obj);
@@ -43,6 +53,8 @@ namespace School.Controllers
         //Delete --------------------------------------------------------------------------
         public IActionResult Delete(int? id)
         {
+
+
             if (id == null || id == 0)
             {
                 return NotFound();

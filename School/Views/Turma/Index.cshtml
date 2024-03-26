@@ -27,7 +27,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var obj in Model.OrderBy(u => u.Id))
+                @foreach (var obj in Model.OrderBy(u => u.Ano))
                 {
                     <tr>
                         <td>@obj.Nome</td>

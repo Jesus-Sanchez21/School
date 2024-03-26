@@ -27,6 +27,16 @@ namespace School.Controllers
         [HttpPost]
         public IActionResult Create(Turma obj)
         {
+            bool containsNumber = obj.Nome.Any(char.IsDigit);
+            if (
+                containsNumber ||
+                String.IsNullOrWhiteSpace(obj.Nome) ||
+                (obj.Ano < 1 && obj.Ano > 12)
+               )
+            {
+
+                return RedirectToAction("Create");
+            }
             if (ModelState.IsValid)
             {
                 _db.Turmas.Add(obj);

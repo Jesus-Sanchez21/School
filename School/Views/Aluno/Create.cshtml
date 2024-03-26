@@ -20,17 +20,11 @@
             <input asp-for="Numero" class="form-control" />
         </div>
         <div class="form-floating mb-3 row">
-            <label asp-for="TurmaId" class="p-0"></label>
-            <select asp-for="TurmaId" asp-items="@Model.TurmaList" class="form-select"></select>
+            <label class="p-0">Turma</label>
+            <select asp-for="TurmaId" asp-items="@Model.TurmaList"  class="form-select"></select>
         </div>
 
         <button type="submit" class="btn btn-primary" style="width:150px"><i class="bi bi-upload"></i></button>
         <a asp-controller="Aluno" asp-action="Index" class="btn btn-secondary" style="width:150px"><i class="bi bi-arrow-return-left"></i></a>
     </div>
 </form>
-
-@section Scripts {
-    @{
-        <partial name="_ValidationScriptsPartial" />
-    }
-}
